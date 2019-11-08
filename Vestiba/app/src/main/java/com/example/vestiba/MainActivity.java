@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pesquisa = (Button)findViewById(R.id.pesquisa);
+        pesquisa = (Button)findViewById(R.id.convidado);
 
         pesquisa.setOnClickListener(new View.OnClickListener() {
             @Override

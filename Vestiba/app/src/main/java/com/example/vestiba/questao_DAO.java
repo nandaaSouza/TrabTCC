@@ -1,4 +1,4 @@
 package com.example.vestiba;
 
-public class questao {
+public class questao_DAO {
 }
