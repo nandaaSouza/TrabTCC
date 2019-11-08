@@ -25,5 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(pesquisaIntent);
             }
         });
+
+        Conexao c = new Conexao();
+        c.execute();
     }
 }
