@@ -1,0 +1,202 @@
+create table questao (
+	IDquestao SERIAL PRIMARY KEY,
+	IDuniversidade integer,
+	anoquestao integer,
+	enunciado varchar(255) NOT NULL
+);
+
+create table alternativa (
+	IDalternativa SERIAL PRIMARY KEY,
+	IDquestao integer,
+	correta boolean,
+	descricao varchar(255) NOT NULL
+);
+
+create table universidade (
+	IDuniversidade SERIAL PRIMARY KEY,
+	nome varchar(255)
+);
+
+create table materia (
+	IDmateria SERIAL PRIMARY KEY,
+	materia varchar(100)
+);
+
+create table assunto (
+	IDassunto SERIAL PRIMARY KEY,
+	assunto varchar(100)
+);
+
+create table aluno (
+	IDaluno SERIAL PRIMARY KEY,
+	IDinstituicao integer,
+	nome varchar(100),
+	email varchar(255),
+	senha varchar(255),
+	idade numeric(3)
+);
+
+create table instituicao (
+	IDinstituicao SERIAL PRIMARY KEY,
+	nome varchar(200)
+);
+
+create table simulado (
+	IDsimulado SERIAL PRIMARY KEY,
+	IDaluno integer
+);
+
+
+
+
+
+
+
+create table materia_questao (
+	IDmateriaquestao SERIAL PRIMARY KEY,
+	IDmateria integer,
+	IDquestao integer
+);
+
+create table assunto_questao (
+	IDassuntoquestao SERIAL PRIMARY KEY,
+	IDassunto integer,
+	IDquestao integer
+);
+
+create table assunto_materia (
+	IDassuntomateria SERIAL PRIMARY KEY,
+	IDassunto integer,
+	IDmateria integer
+);
+
+create table simulado_questao (
+	IDsimuladoquestao SERIAL PRIMARY KEY,
+	IDquestao integer,
+	IDsimulado integer	
+);
+
+
+
+
+
+
+
+
+alter table questao
+add constraint FKuniversidade
+foreign key (IDuniversidade)
+References universidade (IDuniversidade);
+;
+
+alter table alternativa
+add constraint FKquestao
+foreign key (IDquestao)
+References questao (IDquestao);
+;
+
+alter table aluno
+add constraint FKinstituicao
+foreign key (IDinstituicao)
+References instituicao (IDinstituicao);
+;
+
+
+alter table materia_questao
+add constraint FKmateria
+foreign key (IDmateria)
+References materia (IDmateria);
+;
+
+alter table materia_questao
+add constraint FKquestao
+foreign key (IDquestao)
+References questao (IDquestao);
+;
+
+
+alter table assunto_questao
+add constraint FKassunto
+foreign key (IDassunto)
+References assunto (IDassunto);
+;
+
+alter table assunto_questao
+add constraint FKquestao
+foreign key (IDquestao)
+References questao (IDquestao);
+;
+
+
+alter table assunto_materia
+add constraint FKassunto
+foreign key (IDassunto)
+References assunto (IDassunto);
+;
+
+alter table assunto_materia
+add constraint FKmateria
+foreign key (IDmateria)
+References materia (IDmateria);
+;
+
+
+alter table simulado_questao
+add constraint FKsimulado
+foreign key (IDsimulado)
+References simulado (IDsimulado);
+;
+
+alter table simulado_questao
+add constraint FKquestao
+foreign key (IDquestao)
+References questao (IDquestao);
+;
+
+
+
+insert into universidade (nome)
+values ('UNIOESTE');
+;
+
+
+
+insert into materia (materia)
+values ('Língua Portuguesa');
+;
+insert into materia (materia)
+values ('Língua Inglesa');
+;
+insert into materia (materia)
+values ('Língua Espanhola');
+;
+insert into materia (materia)
+values ('Literatura Brasileira');
+;
+insert into materia (materia)
+values ('Biologia');
+;
+insert into materia (materia)
+values ('Filosofia');
+;
+insert into materia (materia)
+values ('Física');
+;
+insert into materia (materia)
+values ('Geografia');
+;
+insert into materia (materia)
+values ('História');
+;
+insert into materia (materia)
+values ('Matemática');
+;
+insert into materia (materia)
+values ('Química');
+;
+insert into materia (materia)
+values ('Sociologia');
+;
+
+
+
