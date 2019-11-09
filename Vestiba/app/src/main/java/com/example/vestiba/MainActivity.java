@@ -10,6 +10,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button pesquisa;
+    Button cadastro;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent pesquisaIntent = new Intent(MainActivity.this, tela_pesquisa.class);
                 startActivity(pesquisaIntent);
+            }
+        });
+
+        cadastro = (Button)findViewById(R.id.cadastrar);
+
+        cadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cadastroIntent = new Intent(MainActivity.this, cadastra.class);
+                startActivity(cadastroIntent);
             }
         });
 

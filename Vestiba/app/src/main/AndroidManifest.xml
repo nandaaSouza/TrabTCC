@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tela_pesquisa"></activity>
+        <activity android:name=".cadastra"></activity>
+        <activity android:name=".pesquisar" />
+        <activity android:name=".tela_pesquisa" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
